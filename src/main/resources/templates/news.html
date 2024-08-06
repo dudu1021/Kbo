@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>뉴스 목록</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      padding: 20px;
+    }
+    h1 {
+      color: #333;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      margin-bottom: 10px;
+    }
+    a {
+      text-decoration: none;
+      color: blue;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+<h1>최신 뉴스 목록</h1>
+<ul id="newsList"></ul>
+
+<script>
+  async function fetchNews() {
+    try {
+      // 서버에서 뉴스 데이터를 받아오는 API 호출
+      const response = await fetch('/news');
+      const newsData = await response.json();
+
+      const list = document.getElementById('newsList');
+      list.innerHTML = ''; // 기존 목록을 초기화
+
+      let counter = 1; // 뉴스 아이템 번호 매기기 시작
+      newsData.forEach(news => {
+        const item = document.createElement('li');
+        const link = document.createElement('a');
+        link.href = news.link; // 서버에서 제공하는 링크 필드를 사용
+        link.textContent = `${counter}. ${news.title}`; // 번호와 함께 제목 표시
+        item.appendChild(link);
+        list.appendChild(item);
+        counter++; // 번호 증가
+      });
+    } catch (error) {
+      console.error('뉴스를 불러오는데 실패했습니다:', error);
+      document.getElementById('newsList').innerHTML = '뉴스를 불러오는 데 실패했습니다.';
+    }
+  }
+
+  // 페이지 로드 시 뉴스 데이터를 불러옵니다.
+  document.addEventListener('DOMContentLoaded', fetchNews);
+</script>
+</body>
+</html>

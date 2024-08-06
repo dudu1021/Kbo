@@ -2,10 +2,122 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>board</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KBO 야구 정보</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            background-color: #EEF7FF;
+            color: black;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        nav {
+            background-color: #e0e0e0;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        ul.navbar {
+            display: flex;
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+        }
+
+        main {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        h1, h2 {
+            font-family: 'Georgia', serif;
+        }
+
+        section {
+            margin-bottom: 20px;
+        }
+
+        #ranking, #nearby-restaurants, #news {
+            padding: 20px;
+            background-color: #ffffff;
+            border-left: 5px solid #EEF7FF;
+        }
+
+        h2 {
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 8px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+
+        li:last-child {
+            border-bottom: none; /* 마지막 아이템에는 경계선을 제거합니다 */
+        }
+
+        li a {
+            display: block; /* 링크를 블록 요소로 만들어 전체 li에 채워집니다 */
+            width: 100%; /* 링크가 li의 전체 너비를 차지하도록 합니다 */
+            text-align: center; /* 텍스트를 가운데 정렬합니다 */
+        }
+
+        footer {
+            background-color: #EEF7FF;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
-    <h1> Kbo </h1>
-
+<header>
+    <h1>KBO 야구 정보</h1>
+</header>
+<nav>
+    <ul class="navbar">
+        <li><a href="index.html">KBO 랭킹</a></li>
+        <li><a href="good.html">야구장 근처 맛집</a></li>
+        <li><a href="news.html">이시각 많이 본 뉴스</a></li>
+    </ul>
+</nav>
+<main>
+    <section id="ranking">
+        <h2>KBO 랭킹</h2>
+        <ul>
+            <li>1위: 팀 A</li>
+            <li>2위: 팀 B</li>
+            <li>3위: 팀 C</li>
+        </ul>
+    </section>
+</main>
+<footer>
+    <p>&copy; 2024 KBO 정보. All rights reserved.</p>
+</footer>
 </body>
 </html>
