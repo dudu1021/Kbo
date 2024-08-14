@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>KBO 팀 Records</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 1.0em;
+            text-align: left;
+        }
+        th, td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<h1>KBO리그 기록 및 순위</h1>
+<table>
+    <thead>
+    <tr>
+        <th>순위</th>
+        <th>팀</th>
+        <th>경기수</th>
+        <th>승</th>
+        <th>패</th>
+        <th>무</th>
+        <th>승률</th>
+        <th>게임차</th>
+        <th>연속</th>
+        <th>출루율</th>
+        <th>장타율</th>
+        <th>최근 10경기</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="record : ${records}">
+        <td th:text="${record.rank}"></td>
+        <td th:text="${#strings.arraySplit(record.teamName, ' ')[0]}"></td>
+        <td th:text="${#strings.arraySplit(record.teamName, ' ')[1]}"></td>
+        <td th:text="${#strings.arraySplit(record.teamName, ' ')[2]}"></td>
+        <td th:text="${#strings.arraySplit(record.teamName, ' ')[3]}"></td>
+        <td th:text="${#strings.arraySplit(record.teamName, ' ')[4]}"></td>
+        <td th:text="${record.winRate}"></td> // 승률
+        <td th:text="${#strings.arraySplit(record.teamName, ' ')[5]}"></td>
+        <td th:text="${#strings.arraySplit(record.teamName, ' ')[6]}"></td>
+        <td th:text="${#strings.arraySplit(record.teamName, ' ')[7]}"></td>
+        <td th:text="${#strings.arraySplit(record.teamName, ' ')[8]}"></td>
+        <td th:text="${#strings.arraySplit(record.teamName, ' ')[9]}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
